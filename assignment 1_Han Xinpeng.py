@@ -19,25 +19,43 @@
 # Prompt for first number, second number and operator,
 # then display the math result.
 # ============================================================
+def ask_number(prompt):
+    """Keep asking until the user types a real number."""
+    while True:
+        text = input(prompt)
+        try:
+            return float(text)
+        except ValueError:
+            print("'%s' is not a number, please try again." % text)
+
+
+def show_result(value):
+    """Print 7 instead of 7.0, but keep decimals like 3.75."""
+    if value == int(value):
+        print("Result:", int(value))
+    else:
+        print("Result:", value)
+
+
 def task_a_calculator():
     print("\n--- Task A: Simple Calculator ---")
     print("Simple Calculator")
 
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
+    num1 = ask_number("Enter first number: ")
+    num2 = ask_number("Enter second number: ")
     op = input("Choose operation (+, -, *, /): ")
 
     if op == "+":
-        print("Result:", num1 + num2)
+        show_result(num1 + num2)
     elif op == "-":
-        print("Result:", num1 - num2)
+        show_result(num1 - num2)
     elif op == "*":
-        print("Result:", num1 * num2)
+        show_result(num1 * num2)
     elif op == "/":
         if num2 == 0:
             print("Result: cannot divide by zero")
         else:
-            print("Result:", num1 / num2)
+            show_result(num1 / num2)
     else:
         print("Invalid operation")
 
