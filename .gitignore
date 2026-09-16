@@ -9,3 +9,7 @@ venv/
 Thumbs.db
 .vscode/
 .idea/
+
+# local auth helper (reads the token from an env var, no secret stored)
+.git-askpass.cmd
+
